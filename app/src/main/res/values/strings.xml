@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StoryGenerator</string>
+    <string name="openai_api_key">Bearer Your_API_KEY</string>
+</resources>
