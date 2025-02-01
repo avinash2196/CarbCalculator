@@ -1,4 +1,4 @@
-package com.example.storygenerator.ui.theme
+package com.example.foodCarbCalculator.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

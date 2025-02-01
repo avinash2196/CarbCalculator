@@ -1,4 +1,4 @@
-package com.example.storygenerator.ui.theme
+package com.example.foodCarbCalculator.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

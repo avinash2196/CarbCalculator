@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StoryGenerator"
+rootProject.name = "FoodCarbCalculator"
 include(":app")

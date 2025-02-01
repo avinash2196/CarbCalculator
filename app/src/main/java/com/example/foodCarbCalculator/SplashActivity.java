@@ -1,4 +1,4 @@
-package com.example.storygenerator;
+package com.example.foodCarbCalculator;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.storygenerator;
+package com.example.foodCarbCalculator;
 
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText genreEditText;
-    private Button generateStoryButton;
-    private TextView storyTextView;
+    private EditText queryEditText;
+    private Button calculateCarbButton;
+    private TextView queryResponseTextView;
 
     private Retrofit retrofit;
     private OpenAIService openAIService;
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        genreEditText = findViewById(R.id.genreEditText);
-        generateStoryButton = findViewById(R.id.generateStoryButton);
-        storyTextView = findViewById(R.id.storyTextView);
+        queryEditText = findViewById(R.id.queryEditText);
+        calculateCarbButton = findViewById(R.id.calculateCarbButton);
+        queryResponseTextView = findViewById(R.id.responseTextView);
 
         // Initialize Retrofit and OpenAI service
         retrofit = new Retrofit.Builder()
@@ -42,18 +42,18 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         openAIService = retrofit.create(OpenAIService.class);
 
-        generateStoryButton.setOnClickListener(new View.OnClickListener() {
+        calculateCarbButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generateStory();
+                calculateCarb();
             }
         });
     }
-    private void generateStory() {
-        String genre = genreEditText.getText().toString();
+    private void calculateCarb() {
+        String carbQuery = queryEditText.getText().toString();
 
-        if (genre.isEmpty()) {
-            storyTextView.setText("Please enter a genre.");
+        if (carbQuery.isEmpty()) {
+            queryResponseTextView.setText("Please enter Query.");
             return;
         }
 
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Create the message for the request
         List<OpenAIRequest.Message> messages = Arrays.asList(
-                new OpenAIRequest.Message("system", "You are a helpful assistant."),
-                new OpenAIRequest.Message("user", "Write a " + genre + " story.")
+                new OpenAIRequest.Message("system", "You are an AI that only responds with the number of carbs in food items, without any explanations."),
+                new OpenAIRequest.Message("user", "How many carbs are in following : " + carbQuery)
         );
 
         // Create the request object
@@ -79,20 +79,20 @@ public class MainActivity extends AppCompatActivity {
         // Content-Type for JSON data
         String contentType = "application/json";
         // Make the API call
-        openAIAPI.generateStory(apiKey,contentType,request).enqueue(new Callback<OpenAIResponse>() {
+        openAIAPI.calculateCarbs(apiKey,contentType,request).enqueue(new Callback<OpenAIResponse>() {
             @Override
             public void onResponse(Call<OpenAIResponse> call, Response<OpenAIResponse> response) {
                 if (response.isSuccessful()) {
-                    String story = response.body().getChoices().get(0).getMessage().getContent();
-                    storyTextView.setText(story);
+                    String carbs = response.body().getChoices().get(0).getMessage().getContent();
+                    queryResponseTextView.setText(carbs);
                 } else {
-                    storyTextView.setText("Error: " + response.code());
+                    queryResponseTextView.setText("Error: " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<OpenAIResponse> call, Throwable t) {
-                storyTextView.setText("Failed to generate story: " + t.getMessage());
+                queryResponseTextView.setText("Failed to calculate carbs: " + t.getMessage());
             }
         });
     }

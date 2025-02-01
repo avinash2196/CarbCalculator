@@ -1,4 +1,4 @@
-package com.example.storygenerator
+package com.example.foodCarbCalculator
 
 import org.junit.Test
 

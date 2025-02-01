@@ -1,4 +1,4 @@
-package com.example.storygenerator;
+package com.example.foodCarbCalculator;
 
 import java.util.List;
 public class OpenAIResponse {

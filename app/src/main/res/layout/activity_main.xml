@@ -6,46 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- EditText for genre input -->
+    <!-- EditText for Query  input -->
     <EditText
-        android:id="@+id/genreEditText"
+        android:id="@+id/queryEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter genre (e.g., fantasy, mystery)"
-        app:layout_constraintBottom_toTopOf="@id/generateStoryButton"
+        android:hint="Enter your food details"
+        app:layout_constraintBottom_toTopOf="@id/calculateCarbButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="16dp"
         android:textSize="18sp"/>
 
-    <!-- Button to trigger story generation -->
+    <!-- Button to trigger carb calculation -->
     <Button
-        android:id="@+id/generateStoryButton"
+        android:id="@+id/calculateCarbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generate Story"
-        app:layout_constraintBottom_toTopOf="@id/storyTextView"
+        android:text="Calculate Carb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/genreEditText"
+        app:layout_constraintTop_toBottomOf="@id/queryEditText"
         android:padding="12dp"/>
 
-    <!-- ScrollView to make the story text scrollable -->
+    <!-- ScrollView to make the carb view scrollable -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/generateStoryButton">
+        app:layout_constraintTop_toBottomOf="@id/calculateCarbButton">
 
-        <!-- TextView to display the generated story -->
+        <!-- TextView to display the calculated carbs -->
         <TextView
-            android:id="@+id/storyTextView"
+            android:id="@+id/responseTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Generated story will appear here"
+            android:text="Calculated Carbs will be displayed here"
             android:padding="16dp"
             android:textSize="16sp"/>
     </ScrollView>

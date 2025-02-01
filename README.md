@@ -1,2 +1,2 @@
-# StoryTellerAndroid
-StoryTeller app for android using chat gpt
+# FoodCarbCalculator
+FoodCarbCalculator app for android using chat gpt

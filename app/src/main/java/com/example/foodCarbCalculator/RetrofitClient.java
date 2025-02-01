@@ -1,4 +1,4 @@
-package com.example.storygenerator;
+package com.example.foodCarbCalculator;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
