@@ -1,4 +1,4 @@
-package com.example.foodCarbCalculator;
+package com.example.foodCarbCalculator.Model;
 
 import java.util.List;
 public class OpenAIResponse {

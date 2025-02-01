@@ -1,4 +1,7 @@
-package com.example.foodCarbCalculator;
+package com.example.foodCarbCalculator.Service;
+
+import com.example.foodCarbCalculator.Model.OpenAIRequest;
+import com.example.foodCarbCalculator.Model.OpenAIResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

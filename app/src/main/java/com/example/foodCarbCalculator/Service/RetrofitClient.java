@@ -1,4 +1,4 @@
-package com.example.foodCarbCalculator;
+package com.example.foodCarbCalculator.Service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,4 +1,4 @@
-package com.example.foodCarbCalculator;
+package com.example.foodCarbCalculator.Activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.foodCarbCalculator.Model.OpenAIRequest;
+import com.example.foodCarbCalculator.Model.OpenAIResponse;
+import com.example.foodCarbCalculator.Service.OpenAIService;
+import com.example.foodCarbCalculator.R;
 
 import java.util.Arrays;
 import java.util.List;
